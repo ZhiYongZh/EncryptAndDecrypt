@@ -101,22 +101,5 @@ public class GenPublicKeyAndEUtil {
 		return v0;
 	}
 	
-	
-	public static PrivateKey GetPrivateKeyFromBase64Certificate( String base64Str ) throws Exception {
-		
-		PrivateKey v0 = null;
-		v0 = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(base64Util.decodeData2Byte(base64Str)));
-		
-	    String rsasy = ((RSAKey)(v0)).getModulus().toString(16);
-	    String rsazs = ((RSAPrivateKey)(v0)).getPrivateExponent().toString(16);
-	    
-	    
-	    System.out.printf("RSA len:%d\n",rsasy.length()/2*8);
-	    System.out.printf("RSA:%s\n",rsasy);
-	    System.out.printf("RSA eponent:%s\n",rsazs);
-	    
-		return v0;
-	}
-
 }
 
